@@ -1,0 +1,59 @@
+<div class="container">
+
+  <h2>Booking List</h2>
+
+  <!-- Navigation Buttons -->
+  <div class="nav-buttons">
+
+    <button routerLink="/">
+      Home
+    </button>
+
+    <button routerLink="/NewBooking">
+      New Booking
+    </button>
+
+  </div>
+
+  <!-- Search -->
+  <div class="search-box">
+
+    <input type="number" placeholder="Search by Resource ID" [(ngModel)]="resourceId">
+
+    <button (click)="searchByName()">Search</button>
+
+  </div>
+
+  <!-- Table -->
+  <table>
+
+    <thead>
+      <tr>
+        
+        <th>Resource</th>
+        <th>User</th>
+        <th>Start</th>
+        <th>End</th>
+        
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let item of allBooking">
+        <td>{{item.resourceId}}</td>
+        <td>{{item.userId}}</td>
+        <td>{{item.startDateTime}}</td>
+        <td>{{item.endDateTime}}</td>
+        
+        <td>
+          <button class="cancel-btn" (click)="cancel(item.id)">Cancel</button>
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

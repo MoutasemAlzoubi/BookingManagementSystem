@@ -1,0 +1,45 @@
+<div class="container">
+
+  <h2>New Booking</h2>
+
+  <!-- Navigation Buttons -->
+  <div class="nav-buttons">
+
+    <button routerLink="/">
+      Home
+    </button>
+
+    <button routerLink="/BookingList">
+      Booking List
+    </button>
+
+  </div>
+
+  <!-- Form -->
+  <form class="form-card" [formGroup]="bookingForm">
+
+    <label>Resource ID</label>
+    <input type="number" placeholder="Enter Resource ID" formControlName="txtResource">
+    <span class="filltext" *ngIf="bookingForm.controls['txtResource'].touched &&
+                         bookingForm.hasError('required','txtResource')">Please enter Resource ID</span>
+
+    <label>User ID</label>
+    <input type="number" placeholder="Enter User ID" formControlName="txtUserId">
+    <span class="filltext" *ngIf="bookingForm.controls['txtUserId'].touched &&
+                         bookingForm.hasError('required','txtUserId')">Please enter User ID</span>
+
+    <label>Start Date & Time</label>
+    <input type="datetime-local" formControlName="txtStartDate">
+    <span class="filltext" *ngIf="bookingForm.controls['txtStartDate'].touched &&
+                         bookingForm.hasError('required','txtStartDate')">Please enter start date</span>
+
+    <label>End Date & Time</label>
+    <input type="datetime-local" formControlName="txtEndDate">
+    <span class="filltext" *ngIf="bookingForm.controls['txtEndDate'].touched &&
+                         bookingForm.hasError('required','txtEndDate')">Please enter end date</span>
+
+    <button type="submit" (click)="create()">Create Booking</button>
+
+  </form>
+
+</div>
